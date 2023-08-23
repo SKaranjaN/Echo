@@ -1,3 +1,4 @@
+/* App.css */
 .App {
   text-align: left;
 }
@@ -12,13 +13,14 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
+
 .App h1 {
   color: rgb(255, 255, 255);
   font-family: 'Arizonia', cursive;
   font-size: 128px;
-  margin-top: 50px;
+  margin-top: 20px;
   margin-left: 50px;
-  font-weight: 400; 
+  font-weight: 400;
 }
 
 .App h2 {
@@ -26,8 +28,10 @@
   font-weight: 200;
   font-size: 96px;
   color: rgb(255, 255, 255);
+  margin-top: -80px;
   margin-left: 50px;
 }
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
