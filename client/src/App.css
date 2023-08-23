@@ -1,5 +1,5 @@
 .App {
-  text-align: center;
+  text-align: left;
 }
 
 .App-logo {
@@ -13,11 +13,20 @@
   }
 }
 .App h1 {
-  font-family: 'Arizonia', cursive;
-  font-weight: 400; 
-  font-size: 128px;
   color: rgb(255, 255, 255);
-  margin-left: -900px; 
+  font-family: 'Arizonia', cursive;
+  font-size: 128px;
+  margin-top: 50px;
+  margin-left: 50px;
+  font-weight: 400; 
+}
+
+.App h2 {
+  font-family: 'Bentham', cursive;
+  font-weight: 200;
+  font-size: 96px;
+  color: rgb(255, 255, 255);
+  margin-left: 50px;
 }
 .App-header {
   background-color: #282c34;
