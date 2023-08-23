@@ -1,8 +1,10 @@
-from flask import Flask, jsonify, make_response, request
+from flask import Flask, jsonify, make_response, request, send_from_directory
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_restful import Api, Resource
 from flask_cors import CORS
+import os
+import whisper
 from config import Config
 
 app = Flask(__name__)
@@ -32,10 +34,7 @@ class Index(Resource):
 class UploadedFiles(Resource):
     def get(self):
         uploads = [upload.to_dict() for upload in UploadedFile.query.all()]
-        response = make_response(
-            jsonify(uploads),
-            200
-        )
+        response = make_response(jsonify(uploads), 200)
         return response
 
     def post(self):
@@ -49,7 +48,20 @@ class UploadedFiles(Resource):
         db.session.add(new_upload)
         db.session.commit()
 
-        response_dict = new_upload.to_dict()
+        model = whisper.load_model("base")
+        options = whisper.DecodingOptions(fp16=False)
+        result = model.transcribe(data['file_path'])
+        transcription_text = result["text"]
+
+        new_transcription = TranscriptionResult(
+            file_id=new_upload.id,
+            transcription_text=transcription_text
+        )
+        
+        db.session.add(new_transcription)
+        db.session.commit()
+
+        response_dict = new_transcription.to_dict()
         response = make_response(jsonify(response_dict), 201)
         return response
 
