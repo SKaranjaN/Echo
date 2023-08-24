@@ -1,0 +1,55 @@
+.play-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .image-title-container {
+    display: flex;
+    align-items: left;
+  }
+  
+  .image-holder {
+    margin-left: 100px;
+    background-image: url("../images/geran-de-klerk-AX9sJ-mPoL4-unsplash (1).jpg");
+    background-size: cover;
+    width: 50px;
+    height: 50px;
+    border-radius: 5px;
+  }
+  
+  .image-title {
+    margin-left: 10px;
+    color: white;
+    font-family: 'Bentham', serif;
+  }
+  .play-button {
+    margin-left: 85px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+    outline: none;
+  }
+  
+  .play-button.loading {
+    pointer-events: none;
+  }
+  
+  .icon-container {
+    background-color: #b9e00a; 
+    border-radius: 50%;
+    padding: 15px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .play-button:hover .icon-container {
+    background-color: #9ebd13; 
+  }
+  
