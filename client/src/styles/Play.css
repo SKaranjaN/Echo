@@ -38,10 +38,6 @@
     outline: none;
   }
   
-  .play-button.loading {
-    pointer-events: none;
-  }
-  
   .icon-container {
     background-color: #b9e00a; 
     border-radius: 50%;
@@ -49,7 +45,18 @@
     transition: background-color 0.3s ease;
   }
   
+  .icon-wrapper {
+    width: 20px;
+    height: 20px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .play-button.loading {
+    pointer-events: none;
+  }
+  
   .play-button:hover .icon-container {
-    background-color: #9ebd13; 
+    background-color: #647710; 
   }
   

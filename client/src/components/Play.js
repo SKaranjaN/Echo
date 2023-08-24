@@ -23,9 +23,11 @@ function Play() {
       </div>
       <button className={`play-button ${isLoading ? 'loading' : ''}`} onClick={handlePlayClick} disabled={isLoading}>
         <div className="icon-container">
-          <FontAwesomeIcon icon={isLoading ? faSpinner : faPlay} />
+            <div className="icon-wrapper">
+            <FontAwesomeIcon icon={isLoading ? faSpinner : faPlay} />
+            </div>
         </div>
-      </button>
+        </button>
     </div>
   );
 }
