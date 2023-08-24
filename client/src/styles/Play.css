@@ -10,7 +10,7 @@
   
   .image-holder {
     margin-left: 100px;
-    background-image: url("../images/geran-de-klerk-AX9sJ-mPoL4-unsplash (1).jpg");
+    background-image: url("../images/Iconn.jpg");
     background-size: cover;
     width: 50px;
     height: 50px;
@@ -23,7 +23,7 @@
     font-family: 'Bentham', serif;
   }
   .play-button {
-    margin-left: 85px;
+    margin-left: 73px;
     background-color: transparent;
     border: none;
     cursor: pointer;

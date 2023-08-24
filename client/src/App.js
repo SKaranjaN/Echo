@@ -1,5 +1,6 @@
 import './App.css';
 import Play from './components/Play';
+import Upload from './components/Upload';
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       <div className="App-components">
       <Play />
       </div>
+      <Upload />
     </div>
   );
 }
