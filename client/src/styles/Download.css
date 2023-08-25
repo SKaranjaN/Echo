@@ -1,0 +1,27 @@
+.Download-container {
+    margin: -75px 20px 20px;
+    background-color: #96A4A8;
+    border-radius: 5px;
+    width: 350px;
+    height: 50px;
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    
+  }
+
+  .download-button {
+    padding: 5px;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+    border-radius: 5px;
+    height: 5px;
+    width: 5px;
+  }
+
+  .download-button img {
+    height: 40px;
+    width: 40px;
+  }

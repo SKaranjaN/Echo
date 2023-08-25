@@ -1,6 +1,8 @@
 import './App.css';
+import Download from './components/Download';
 import Play from './components/Play';
 import Upload from './components/Upload';
+
 
 function App() {
   return (
@@ -12,6 +14,7 @@ function App() {
       <Play />
       </div>
       <Upload />
+      <Download />
     </div>
   );
 }
