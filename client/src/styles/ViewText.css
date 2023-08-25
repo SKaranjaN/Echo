@@ -11,14 +11,18 @@
 }
 
 .view-text h3 {
-    margin: 0;
+    margin: 20px 0 10px;
+    font-family: "Quicksand", sans-serif;
+    font-weight: 600; 
+    font-size:35px;
+    color: #fff;
 }
 
 .wavy-image {
     position: absolute;
     top: 50%; 
     right: -50px; 
-    transform: translate(50%, -50%) rotate(145deg) ;
+    transform: translate(50%, -50%) rotate(135deg) ;
     opacity: 0.5;
     pointer-events: none;
     clip-path: polygon(100% 0, 100% 100%, 0 100%);
