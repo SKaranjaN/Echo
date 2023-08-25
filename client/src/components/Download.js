@@ -8,7 +8,8 @@ function Download() {
             <label className="download-button" htmlFor="file-input">
         <img src={Image} alt="Upload" />
       </label>
-        </div>
+      <p>Download the transcripted file here</p>
+      </div>
     )
 }
 export default Download;

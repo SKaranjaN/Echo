@@ -6,6 +6,8 @@ from flask_cors import CORS
 import os
 import whisper
 from config import Config
+import cloudinary.uploader
+import cloudinary
 
 app = Flask(__name__)
 app.config.from_object(Config)
@@ -17,6 +19,8 @@ migrate = Migrate(app, db)
 from models import UploadedFile, TranscriptionResult
 
 api = Api(app)
+
+
 
 
 class Index(Resource):
@@ -64,8 +68,24 @@ class UploadedFiles(Resource):
         response_dict = new_transcription.to_dict()
         response = make_response(jsonify(response_dict), 201)
         return response
+    
+@app.route('/upload', methods=['POST'])
+def upload_media():
+    try:
+        file = request.files['file']
+        print("Received file:", file)
+        print("Received file type:", file.content_type)
+        
+        if not file:
+            return jsonify({'error': 'No file provided'}), 400
 
-
+        uploaded_media = cloudinary.uploader.upload(file)
+        print("Uploaded to Cloudinary:", uploaded_media)
+        return jsonify({'secure_url': uploaded_media['secure_url']}), 200
+    except Exception as e:
+        print("Error:", str(e))
+        return jsonify({'error': str(e)}), 500
+    
 class Upload_by_Id(Resource):
     def get(self, id):
         response_dict = UploadedFile.query.filter_by(id=id).first().to_dict()

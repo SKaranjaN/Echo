@@ -1,4 +1,10 @@
-from sqlalchemy import create_engine
+import cloudinary
+
+cloudinary.config(
+    cloud_name='dyahkvt1m',
+    api_key='772552848921945',
+    api_secret='aT2P256eQn6xr9r-2IDF1JRDShk'
+)
 
 class Config:
     SQLALCHEMY_DATABASE_URI = 'postgresql://postgres:postgres@localhost:5432/echo'

@@ -7,6 +7,11 @@ name = "pypi"
 flask = "*"
 sqlalchemy = "*"
 datetime = "*"
+flask-restful = "*"
+flask-cors = "*"
+flask-migrate = "*"
+psycopg2 = "*"
+"azure.cognitiveservices.speech" = "*"
 
 [dev-packages]
 
