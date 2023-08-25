@@ -2,6 +2,7 @@ import './App.css';
 import Download from './components/Download';
 import Play from './components/Play';
 import Upload from './components/Upload';
+import ViewText from './components/ViewText';
 
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
       <div className="App-components">
       <Play />
       </div>
+      <ViewText />
       <Upload />
       <Download />
     </div>

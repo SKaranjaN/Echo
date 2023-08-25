@@ -16,7 +16,7 @@ body::before {
   width: 100%;
   height: 100%;
   background: url('./images/Ethnic-1.jpg') no-repeat center top;
-  background-size: auto 130vh;
+  background-size: auto 135vh;
   background-color: transparent;
   transform: rotate(180deg);
   z-index: -1; 
