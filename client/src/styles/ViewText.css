@@ -2,14 +2,24 @@
     position: absolute;
     top: 50px;
     right: 10px;
-    padding: 20px; 
+    padding: 20px;
     background-color: #96A4A8;
     border-radius: 20px;
     height: 350px;
     width: 700px;
-  }
-  
-  .view-text h3 {
-    margin: 0; 
-  }
-  
+    overflow: hidden;
+}
+
+.view-text h3 {
+    margin: 0;
+}
+
+.wavy-image {
+    position: absolute;
+    top: 50%; 
+    right: -50px; 
+    transform: translate(50%, -50%) rotate(145deg) ;
+    opacity: 0.5;
+    pointer-events: none;
+    clip-path: polygon(100% 0, 100% 100%, 0 100%);
+}
