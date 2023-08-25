@@ -41,15 +41,17 @@ function Upload() {
 
   return (
     <div className="upload-container">
-      <input
-        className="file-input"
-        type="file"
-        accept="audio/*, video/*"
-        onChange={handleFileChange}
-      />
-      <label className="upload-button" htmlFor="file-input">
-        <img src={plusImage} alt="Upload" />
-      </label>
+    <label for="fileInput" className="upload-button">
+    <img src={plusImage} alt="Upload" />
+    Choose File
+  </label>
+  <input
+    id="fileInput"
+    className="file-input"
+    type="file"
+    accept="audio/*, video/*"
+    onChange={handleFileChange}
+  />
   
       {url && (
         <div>

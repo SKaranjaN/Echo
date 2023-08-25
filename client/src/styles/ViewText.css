@@ -1,6 +1,6 @@
 .view-text {
     position: absolute;
-    top: 50px;
+    top: 30px;
     right: 10px;
     padding: 20px;
     background-color: #96A4A8;
@@ -16,7 +16,13 @@
     font-weight: 600; 
     font-size:35px;
     color: #fff;
+    margin-left: 50px;
 }
+.view-text p {
+    font-family: "Quicksand", sans-serif;
+    margin-left: 50px;
+    color: #fff;
+  }
 
 .wavy-image {
     position: absolute;
