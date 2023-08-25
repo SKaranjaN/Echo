@@ -7,7 +7,7 @@
   }
   
   .upload-button {
-    padding: 1px 1px; 
+    padding: 5px;
     color: #fff;
     border: none;
     cursor: pointer;
@@ -16,9 +16,12 @@
     height: 5px;
     width: 5px;
   }
-  
   .file-input {
-    /* display: none;  */
+    position: absolute;
+    top: 480px;
+    left: 100px;
+    /* opacity: 0; */
+    /* pointer-events: none; */
   }
   .upload-button img {
     height: 40px; 
