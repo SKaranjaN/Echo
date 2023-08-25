@@ -19,9 +19,12 @@
     border-radius: 5px;
     height: 5px;
     width: 5px;
+    display: flex; 
+    align-items: center;
   }
-
+  
   .download-button img {
     height: 40px;
     width: 40px;
+    margin-top: -5px;
   }
