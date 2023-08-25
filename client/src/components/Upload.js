@@ -1,10 +1,12 @@
 import React, { useState } from "react";
-import "../styles/Upload.css"
+import "../styles/Upload.css";
 import plusImage from "../images/Plus.png";
 
 function Upload() {
   const [file, setFile] = useState(null);
   const [url, setUrl] = useState("");
+  const [uploadProgress, setUploadProgress] = useState(0);
+  const [uploadComplete, setUploadComplete] = useState(false);
 
   function handleFileChange(event) {
     const selectedFile = event.target.files[0];
@@ -25,14 +27,25 @@ function Upload() {
       const response = await fetch("http://localhost:5000/upload", {
         method: "POST",
         body: formData,
+        onUploadProgress: (progressEvent) => {
+          const progress = Math.round(
+            (progressEvent.loaded / progressEvent.total) * 100
+          );
+          setUploadProgress(progress);
+        },
       });
 
       if (response.ok) {
         const data = await response.json();
         setUrl(data.secure_url);
+        setUploadComplete(true);
+        setUploadProgress(100);
         console.log("Uploaded URL:", data.secure_url);
       } else {
-        console.error("Error uploading file to Cloudinary. Status:", response.status);
+        console.error(
+          "Error uploading file to Cloudinary. Status:",
+          response.status
+        );
       }
     } catch (error) {
       console.error("Error uploading file to Cloudinary:", error);
@@ -41,18 +54,28 @@ function Upload() {
 
   return (
     <div className="upload-container">
-    <label for="fileInput" className="upload-button">
-    <img src={plusImage} alt="Upload" />
-    Choose File
-  </label>
-  <input
-    id="fileInput"
-    className="file-input"
-    type="file"
-    accept="audio/*, video/*"
-    onChange={handleFileChange}
-  />
-  
+      <label htmlFor="fileInput" className="upload-button">
+        <img src={plusImage} alt="Upload" />
+        Choose File
+      </label>
+      <input
+        id="fileInput"
+        className="file-input"
+        type="file"
+        accept="audio/*, video/*"
+        onChange={handleFileChange}
+      />
+
+      {uploadProgress > 0 && uploadProgress < 100 && (
+        <div className="progress-bar" style={{ width: `${uploadProgress}%` }}>
+          {uploadProgress}% Uploaded
+        </div>
+      )}
+
+      {uploadComplete && (
+        <div className="upload-complete-message">Upload Complete</div>
+      )}
+
       {url && (
         <div>
           {file.type.includes("audio") ? (
