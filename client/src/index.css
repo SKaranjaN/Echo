@@ -22,4 +22,18 @@ body::before {
   z-index: -1; 
 }
 
-
+@media (max-width: 767px) {
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 25%; 
+    width: 50%; 
+    height: 100%;
+    background: url('./images/Ethnic-1.jpg') no-repeat center top;
+    background-size: auto 135vh;
+    background-color: transparent;
+    transform: rotate(180deg) translateX(-50%); 
+    z-index: -1; 
+  }
+}
