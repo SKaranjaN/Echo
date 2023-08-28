@@ -12,11 +12,9 @@
 .text-result {
     max-height: 200px;
     overflow: auto; 
-    border: 1px solid #ccc;
-    border-radius: 5px;
     height: 100vh;
-    background-color: #ccc;
     font-family: "Quicksand", sans-serif;
+    color: #fff;
   }
 .view-text h3 {
     margin: 20px 0 10px;
