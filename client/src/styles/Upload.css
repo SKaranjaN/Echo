@@ -1,3 +1,5 @@
+/* Upload.css */
+
 .upload-container {
   background-color: #96a4a8;
   border-radius: 20px;
@@ -7,6 +9,7 @@
   align-items: center;
   padding: 10px;
   margin: -20px 20px 20px;
+  position: relative;
 }
 
 .upload-button {
@@ -30,10 +33,12 @@
   margin-right: 10px;
 }
 
-.progress-bar {
-  flex-grow: 1;
-  height: 10px;
-  background-color: #4caf50;
-  border-radius: 5px;
-  transition: width 0.3s ease;
+.progress-text {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  font-family: "Quicksand", sans-serif;
+  font-size: 14px;
+  color: #3498db;
 }
