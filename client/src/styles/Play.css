@@ -60,3 +60,43 @@
     background-color: #647710; 
   }
   
+  @media (max-width: 767px) {
+    .play-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .image-holder {
+      margin-left: 0;
+      margin-bottom: 20px;
+    }
+  
+    .image-title-container {
+      display: none;
+    }
+  
+    .play-button {
+      margin-top: 20px;
+    }
+    
+    .icon-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #b9e00a; 
+      border-radius: 50%;
+      padding: 15px;
+      transition: background-color 0.3s ease;
+    }
+  
+    .icon-wrapper {
+      width: 20px;
+      height: 20px; 
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+  
+  
