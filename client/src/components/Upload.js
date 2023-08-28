@@ -60,7 +60,7 @@ function Upload() {
           {uploadProgress === 100 ? "Upload Complete" : `${uploadProgress.toFixed(2)}%`}
         </div>
       </div>
-      <div className="App-components">
+      <div>
         <Play cloudinaryUrl={cloudinaryUrl} fileName={fileName} /> {/* Pass the Cloudinary URL and file name to Play component */}
       </div>
     </div>
