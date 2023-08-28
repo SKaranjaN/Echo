@@ -71,6 +71,9 @@
   .play-button:hover .icon-container {
     background-color: #647710; 
   }
+  .play-button.loading .progress-text {
+    color: white;
+  }
   
   @media (max-width: 767px) {
     .play-container {

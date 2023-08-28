@@ -1,14 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlay, faSpinner } from '@fortawesome/free-solid-svg-icons';
 import '../styles/Play.css'; 
 
 function Play({ cloudinaryUrl, fileName }) {
   const [isLoading, setIsLoading] = useState(false);
+  const [transcriptionStatus, setTranscriptionStatus] = useState('Welcome to Echo, click on the Play button to start transcribing');
 
   const handlePlayClick = () => {
     setIsLoading(true);
-
+    setTranscriptionStatus('Please wait...');
+    
     // Create the data to send in the POST request
     const postData = {
       file_name: fileName,
@@ -25,9 +27,11 @@ function Play({ cloudinaryUrl, fileName }) {
       .then(response => response.json())
       .then(data => {
         console.log("POST response:", data);
+        setTranscriptionStatus('Transcription done');
       })
       .catch(error => {
         console.error("Error in POST request:", error);
+        setTranscriptionStatus('Error occurred');
       })
       .finally(() => {
         setIsLoading(false);
@@ -40,12 +44,18 @@ function Play({ cloudinaryUrl, fileName }) {
         <div className="image-holder">
           {/* This is an empty div for the background image */}
         </div>
-        <p className="image-title">Welcome to Echo, click on the Play button to start transcribing</p>
+        <p className="image-title">{transcriptionStatus}</p>
       </div>
       <button className={`play-button ${isLoading ? 'loading' : ''}`} onClick={handlePlayClick} disabled={isLoading}>
         <div className="icon-container">
           <div className="icon-wrapper">
-            <FontAwesomeIcon icon={isLoading ? faSpinner : faPlay} />
+            {isLoading ? (
+              <div className="progress-indicator">
+                <FontAwesomeIcon icon={faSpinner} spin />
+              </div>
+            ) : (
+              <FontAwesomeIcon icon={faPlay} />
+            )}
           </div>
         </div>
       </button>
