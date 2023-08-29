@@ -3,6 +3,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlay, faSpinner } from '@fortawesome/free-solid-svg-icons';
 import '../styles/Play.css';
 import ViewText from './ViewText';
+import Download from './Download';
+import TranscriptionPDF from './TranscriptionPDF';
 
 function Play({ cloudinaryUrl, fileName }) {
   const [isLoading, setIsLoading] = useState(false);
@@ -70,6 +72,8 @@ function Play({ cloudinaryUrl, fileName }) {
       </div>
     </div>
     <ViewText transcriptionText={transcriptionText} />
+    <Download transcriptionText={transcriptionText} />
+    <TranscriptionPDF transcriptionText={transcriptionText} />
     </div>
   );
 }

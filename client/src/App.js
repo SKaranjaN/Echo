@@ -1,5 +1,4 @@
 import './App.css';
-import Download from './components/Download';
 import Upload from './components/Upload';
 
 
@@ -10,7 +9,6 @@ function App() {
       <h2>The best <br />
       transcriber</h2>
       <Upload />
-      <Download />
     </div>
   );
 }
