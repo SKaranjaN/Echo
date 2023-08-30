@@ -42,3 +42,38 @@
   font-size: 14px;
   color: #000;
 }
+
+@media (max-width: 767px) {
+  .upload-container {
+    width: 150px;
+    height: 100px; 
+    bottom: 90px;
+    left: 5px;
+    margin: 0;
+    padding: 0;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed; 
+    background-color: #96a4a8;
+  }
+
+  .upload-button {
+    display: none;
+  }
+
+  .file-input {
+    /* ... */
+  }
+
+  .upload-button img {
+    height: 40px;
+    width: 40px;
+    
+  }
+
+  .progress-text {
+    display: show;
+  }
+}
