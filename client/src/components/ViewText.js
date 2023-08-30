@@ -8,11 +8,18 @@ function ViewText({ transcriptionText, onEdit }) {
 
   const handleEditClick = () => {
     setIsEditing(true);
+    setEditedText(transcriptionText); 
   };
 
   const handleSaveClick = () => {
     setIsEditing(false);
     onEdit(editedText);
+  };
+
+  const handleBlur = () => {
+    if (isEditing) {
+      handleSaveClick();
+    }
   };
 
   return (
@@ -25,9 +32,8 @@ function ViewText({ transcriptionText, onEdit }) {
             <div
               contentEditable={true}
               suppressContentEditableWarning={true}
-              onBlur={handleSaveClick}
+              onBlur={handleBlur}
               className="edit-text"
-              onInput={(e) => setEditedText(e.target.innerText)} 
             >
               {editedText}
             </div>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import jsPDF from 'jspdf';
-import html2canvas from 'html2canvas';
+
 import "../styles/Download.css";
 import Image from "../images/Download.png";
 
