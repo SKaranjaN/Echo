@@ -1,19 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../styles/ViewText.css';
 import wavyImage from '../images/wavy.png';
 
-function ViewText({ transcriptionText, onEdit }) {
+function ViewText({ transcriptionText, onEdit, onSave }) {
   const [isEditing, setIsEditing] = useState(false);
   const [editedText, setEditedText] = useState(transcriptionText);
 
   const handleEditClick = () => {
     setIsEditing(true);
-    setEditedText(transcriptionText); 
   };
 
   const handleSaveClick = () => {
     setIsEditing(false);
     onEdit(editedText);
+    onSave(editedText);
   };
 
   const handleBlur = () => {
@@ -21,6 +21,14 @@ function ViewText({ transcriptionText, onEdit }) {
       handleSaveClick();
     }
   };
+
+  const handleContentChange = (event) => {
+    setEditedText(event.target.textContent);
+  };
+
+  useEffect(() => {
+    // console.log(`ViewText (editedText): ${editedText}`);
+  }, [editedText]);
 
   return (
     <div className="view-text">
@@ -33,6 +41,7 @@ function ViewText({ transcriptionText, onEdit }) {
               contentEditable={true}
               suppressContentEditableWarning={true}
               onBlur={handleBlur}
+              onInput={handleContentChange}
               className="edit-text"
             >
               {editedText}
