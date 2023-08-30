@@ -52,3 +52,27 @@
     transform: rotate(360deg);
   }
 }
+
+@media (max-width: 767px) {
+  .App h1 {
+    font-size: 16px; 
+  }
+
+  .App h2 {
+    display: none;
+  }
+
+  .App-header {
+    align-items: flex-start; 
+    padding: 20px;
+  }
+
+  .App p {
+    color: rgb(255, 255, 255);
+    font-family: 'Arizonia', cursive;
+    font-size: 36px;
+    font-weight: 400;
+    margin-top: 5px;
+    margin-left: 20px; 
+  }
+}

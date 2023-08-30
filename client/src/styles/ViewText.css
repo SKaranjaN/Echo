@@ -56,3 +56,35 @@
   pointer-events: none;
   clip-path: polygon(100% 0, 100% 100%, 0 100%);
 }
+
+@media (max-width: 767px) {
+  .view-text {
+    top: 10px;
+    right: 5px;
+    left: 5px; 
+    width: calc(91% - 20px); 
+    max-height: 330px; 
+    overflow: hidden;
+    border-radius: 20px;
+  }
+
+  .text-result {
+    max-height: 200px;
+    overflow: auto;
+    height: auto;
+  }
+
+  .view-text h3 {
+    font-size: 24px; 
+    margin-left: 20px; 
+  }
+
+  .view-text p {
+    font-size: 16px; 
+    margin-left: 20px; 
+  }
+  
+  .wavy-image {
+    display: none;
+  }
+}
