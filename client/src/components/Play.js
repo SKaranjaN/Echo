@@ -46,34 +46,64 @@ function Play({ cloudinaryUrl, fileName }) {
       });
   };
 
+  const handleTextChange = editedText => {
+    setTranscriptionText(editedText);
+  };
+
+  const handleSaveText = () => {
+    const patchData = {
+      transcription_text: transcriptionText,
+    };
+
+    const transcriptionId = 123; 
+    fetch(`http://127.0.0.1:5000/transcriptions/${transcriptionId}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(patchData),
+    })
+      .then(response => response.json())
+      .then(data => {
+        console.log("PATCH response:", data);
+      })
+      .catch(error => {
+        console.error("Error in PATCH request:", error);
+      });
+  };
+
   return (
     <div>
-    <div className='App-components'>
-      <div className="play-container">
-        <div className="image-title-container">
-          <div className="image-holder">
-            {/* This is an empty div for the background image */}
-          </div>
-          <p className="image-title">{transcriptionStatus}</p>
-        </div>
-        <button className={`play-button ${isLoading ? 'loading' : ''}`} onClick={handlePlayClick} disabled={isLoading}>
-          <div className="icon-container">
-            <div className="icon-wrapper">
-              {isLoading ? (
-                <div className="progress-indicator">
-                  <FontAwesomeIcon icon={faSpinner} spin />
-                </div>
-              ) : (
-                <FontAwesomeIcon icon={faPlay} />
-              )}
+      <div className='App-components'>
+        <div className="play-container">
+          <div className="image-title-container">
+            <div className="image-holder">
+              {/* This is an empty div for the background image */}
             </div>
+            <p className="image-title">{transcriptionStatus}</p>
           </div>
-        </button>
+          <button className={`play-button ${isLoading ? 'loading' : ''}`} onClick={handlePlayClick} disabled={isLoading}>
+            <div className="icon-container">
+              <div className="icon-wrapper">
+                {isLoading ? (
+                  <div className="progress-indicator">
+                    <FontAwesomeIcon icon={faSpinner} spin />
+                  </div>
+                ) : (
+                  <FontAwesomeIcon icon={faPlay} />
+                )}
+              </div>
+            </div>
+          </button>
+        </div>
       </div>
-    </div>
-    <ViewText transcriptionText={transcriptionText} />
-    <Download transcriptionText={transcriptionText} />
-    <TranscriptionPDF transcriptionText={transcriptionText} />
+      <ViewText
+        transcriptionText={transcriptionText}
+        onEdit={handleTextChange}
+      />
+      <Download transcriptionText={transcriptionText} />
+      <TranscriptionPDF transcriptionText={transcriptionText} />
+      <button onClick={handleSaveText}>Save</button>
     </div>
   );
 }

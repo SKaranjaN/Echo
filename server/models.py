@@ -15,6 +15,12 @@ class UploadedFile(Base):
     file_name = db.Column(db.String(255), nullable=False)
     file_path = db.Column(db.String(255), nullable=False)
 
+    def to_dict(self):
+        return {
+            'file_name': self.file_name,
+            'file_path': self.file_path
+        }
+
 class TranscriptionResult(db.Model):
     __tablename__ = 'transcription_results'
 

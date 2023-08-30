@@ -1,27 +1,16 @@
-from flask import Flask, jsonify, make_response, request, send_from_directory
-from flask_sqlalchemy import SQLAlchemy
-from flask_migrate import Migrate
+from flask import Flask, jsonify, make_response, request
 from flask_restful import Api, Resource
 from flask_cors import CORS
-import os
 import whisper
 from config import Config
-import cloudinary.uploader
-import cloudinary
+from models import db, UploadedFile, TranscriptionResult  
 
 app = Flask(__name__)
 app.config.from_object(Config)
+api = Api(app)
 CORS(app)
 
-db = SQLAlchemy(app)
-migrate = Migrate(app, db)
-
-from models import UploadedFile, TranscriptionResult
-
-api = Api(app)
-
-
-
+db.init_app(app)
 
 class Index(Resource):
     def get(self):
@@ -68,23 +57,6 @@ class UploadedFiles(Resource):
         response_dict = new_transcription.to_dict()
         response = make_response(jsonify(response_dict), 201)
         return response
-    
-@app.route('/upload', methods=['POST'])
-def upload_media():
-    try:
-        file = request.files['file']
-        print("Received file:", file)
-        print("Received file type:", file.content_type)
-        
-        if not file:
-            return jsonify({'error': 'No file provided'}), 400
-
-        uploaded_media = cloudinary.uploader.upload(file)
-        print("Uploaded to Cloudinary:", uploaded_media)
-        return jsonify({'secure_url': uploaded_media['secure_url']}), 200
-    except Exception as e:
-        print("Error:", str(e))
-        return jsonify({'error': str(e)}), 500
     
 class Upload_by_Id(Resource):
     def get(self, id):

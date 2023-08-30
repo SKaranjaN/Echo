@@ -11,6 +11,7 @@ function Download({ transcriptionText }) {
     const pdf = new jsPDF();
     const pageWidth = pdf.internal.pageSize.getWidth();
     const lineHeight = 6;
+    pdf.setFont("Quicksand");
 
     const lines = pdf.splitTextToSize(transcriptionText, pageWidth - 20); 
 
