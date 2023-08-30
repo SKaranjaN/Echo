@@ -1,41 +1,58 @@
 .view-text {
-    position: absolute;
-    top: 30px;
-    right: 10px;
-    padding: 20px;
-    background-color: #96A4A8;
-    border-radius: 20px;
-    height: 350px;
-    width: 700px;
-    overflow: hidden;
+  position: absolute;
+  top: 30px;
+  right: 10px;
+  padding: 20px;
+  background-color: #96A4A8;
+  border-radius: 20px;
+  height: 350px;
+  width: 700px;
+  overflow: hidden;
 }
+
 .text-result {
-    max-height: 200px;
-    overflow: auto; 
-    height: 100vh;
-    font-family: "Quicksand", sans-serif;
-    color: #fff;
-  }
-.view-text h3 {
-    margin: 20px 0 10px;
-    font-family: "Quicksand", sans-serif;
-    font-weight: 600; 
-    font-size:35px;
-    color: #fff;
-    margin-left: 50px;
+  max-height: 200px;
+  overflow: auto;
+  height: 100vh;
+  font-family: "Quicksand", sans-serif;
+  color: #fff;
+  position: relative;
 }
+
+.text-result::-webkit-scrollbar {
+  width: 5px;
+}
+
+.text-result::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+.text-result::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
+}
+
+.view-text h3 {
+  margin: 20px 0 10px;
+  font-family: "Quicksand", sans-serif;
+  font-weight: 600;
+  font-size: 35px;
+  color: #fff;
+  margin-left: 50px;
+}
+
 .view-text p {
-    font-family: "Quicksand", sans-serif;
-    margin-left: 50px;
-    color: #fff;
-  }
+  font-family: "Quicksand", sans-serif;
+  margin-left: 50px;
+  color: #fff;
+}
 
 .wavy-image {
-    position: absolute;
-    top: 50%; 
-    right: -50px; 
-    transform: translate(50%, -50%) rotate(135deg) ;
-    opacity: 0.5;
-    pointer-events: none;
-    clip-path: polygon(100% 0, 100% 100%, 0 100%);
+  position: absolute;
+  top: 50%;
+  right: -50px;
+  transform: translate(50%, -50%) rotate(135deg);
+  opacity: 0.5;
+  pointer-events: none;
+  clip-path: polygon(100% 0, 100% 100%, 0 100%);
 }
