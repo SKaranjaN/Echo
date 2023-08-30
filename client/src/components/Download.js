@@ -10,10 +10,11 @@ function Download({ transcriptionText }) {
   const handleDownloadPDF = () => {
     const pdf = new jsPDF();
     const pageWidth = pdf.internal.pageSize.getWidth();
-    const lineHeight = 6;
-    pdf.setFont("Quicksand");
+    const lineHeight = 7; 
+    pdf.setFont("times"); 
+    pdf.setFontSize(12); 
 
-    const lines = pdf.splitTextToSize(transcriptionText, pageWidth - 20); 
+    const lines = pdf.splitTextToSize(transcriptionText, pageWidth - 30); 
 
     let y = 20;
 
