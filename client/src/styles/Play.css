@@ -55,6 +55,10 @@
     border-radius: 50%;
     padding: 15px;
     transition: background-color 0.3s ease;
+    position: absolute;
+    top: 50%;
+    left: 50%; 
+    transform: translate(-50%, -50%);
   }
   
   .icon-wrapper {
