@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
 import '../styles/ViewText.css';
 import wavyImage from '../images/wavy.png';
 
 function ViewText({ transcriptionText, onEdit, onSave }) {
   const [isEditing, setIsEditing] = useState(false);
   const [editedText, setEditedText] = useState(transcriptionText);
+  const contentEditableRef = useRef(null);
 
   const handleEditClick = () => {
     setIsEditing(true);
@@ -14,6 +15,10 @@ function ViewText({ transcriptionText, onEdit, onSave }) {
     setIsEditing(false);
     onEdit(editedText);
     onSave(editedText);
+  };
+
+  const handleBlur = () => {
+    handleSaveClick();
   };
 
   const handleContentChange = (event) => {
@@ -27,15 +32,22 @@ function ViewText({ transcriptionText, onEdit, onSave }) {
       <div className="text-result scrollable">
         {isEditing ? (
           <div
+            ref={contentEditableRef}
             contentEditable={true}
             suppressContentEditableWarning={true}
             onInput={handleContentChange}
+            onBlur={handleBlur}
             className="edit-text"
           >
-            {editedText}
+            {transcriptionText}
           </div>
         ) : (
-          <div>{transcriptionText}</div>
+          <div
+            onClick={handleEditClick}
+            style={{ cursor: 'pointer' }}
+          >
+            {transcriptionText}
+          </div>
         )}
       </div>
       <div className="edit-button-container">
