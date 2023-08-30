@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react';
 import '../styles/ViewText.css';
 import wavyImage from '../images/wavy.png';
 
-function ViewText({ transcriptionText, onEdit, onSave }) {
+function ViewText({ transcriptionText, onEdit, onSave, isLoading }) {
   const [isEditing, setIsEditing] = useState(false);
   const [editedText, setEditedText] = useState(transcriptionText);
   const contentEditableRef = useRef(null);
@@ -28,7 +28,11 @@ function ViewText({ transcriptionText, onEdit, onSave }) {
   return (
     <div className="view-text">
       <h3>Start to transcribe your file</h3>
-      <p>Click on the play button below</p>
+      {isLoading ? (
+        <p>Please wait...</p>
+      ) : (
+        <p>Click on the play button below</p>
+      )}
       <div className="text-result scrollable">
         {isEditing ? (
           <div

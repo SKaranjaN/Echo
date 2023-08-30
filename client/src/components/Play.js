@@ -104,6 +104,7 @@ function Play({ cloudinaryUrl, fileName }) {
         transcriptionText={transcriptionText}
         onEdit={handleTextChange}
         onSave={handleSaveText} 
+        isLoading={isLoading}
       />
       <Download transcriptionText={transcriptionText} />
       <TranscriptionPDF transcriptionText={transcriptionText} />
