@@ -10,7 +10,7 @@
   display: flex;
   align-items: center;
   height: 50px;
-  justify-content: flex-start; /* Add this line to align content to the left */
+  justify-content: flex-start;
 }
 
 .download-button {
@@ -35,4 +35,40 @@
 .Download-container p {
   font-family: "Quicksand", sans-serif;
   margin-left: 30px; 
+}
+
+@media (max-width: 767px) {
+  .Download-container {
+    width: 150px;
+    height: 100px; 
+    bottom: 90px;
+    left: 177px;
+    margin: 0;
+    padding: 0;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed; 
+    background-color: #96a4a8;
+  }
+
+  /* .download-button {
+    display: none;
+  } */
+
+  .Download-container p {
+    font-family: "Quicksand", sans-serif;
+    margin-left: 30px; 
+    color: black;
+    font-size: 15px;
+    margin-top: 28px;
+  }
+
+  .download-button img {
+    height: 50px;
+    width: 50px;
+    left: 177px;
+    
+  }
 }

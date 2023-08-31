@@ -59,7 +59,7 @@
 
 @media (max-width: 767px) {
   .view-text {
-    top: 10px;
+    top: 30px;
     right: 5px;
     left: 5px; 
     width: calc(91% - 20px); 
