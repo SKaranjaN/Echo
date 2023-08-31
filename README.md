@@ -5,7 +5,7 @@ Author: Stephen Karanja. 31/08/2023.
 Description: A simple transcription application that allows one to upload audio or video files and transcribe them and download the transcribed file.
 
 Landing Page:
-![Landing Page Image](/home/steve/Personal-projects/Echo/client/src/images/Echo.png)
+![Landing Page Image](client/src/images/Echo.png)
 
 Demo: You can demo the site here.
 
