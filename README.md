@@ -21,7 +21,7 @@ Here is a run-through of how to set up the application:
 1. Clone this repository using the git clone link: https://github.com/SKaranjaN/Echo
 2. Navigate to the directory: `cd server`, then `pipenv install && pipenv shell` or use your preferred environment, then `flask run` while in the server directory to initiate the server.
 3. Open the client directory in another terminal created with your favorite IDE. If Atom, type `atom .`; if VSCode, type `code .`. This will launch the editor with the project setup. Now feel free to hack around the project.
-4. For the API to fetch data you'll have to install json-server by running the bellow commands;
+4. For the frontend to render you'll have to run the bellow command;
     `npm start`  
 5. After this launch the application and have fun.
 Known Bugs: None currently.
