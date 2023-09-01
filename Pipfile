@@ -12,6 +12,10 @@ flask-cors = "*"
 flask-migrate = "*"
 psycopg2 = "*"
 "azure.cognitiveservices.speech" = "*"
+python-dotenv = "*"
+honcho = "*"
+gunicorn = "*"
+cloudinary = "*"
 
 [dev-packages]
 

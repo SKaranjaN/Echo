@@ -1,27 +1,38 @@
-from flask import Flask, jsonify, make_response, request
+from flask import Flask, jsonify, make_response, request, render_template
 from flask_restful import Api, Resource
 from flask_cors import CORS
 import whisper
 from config import Config
 from models import db, UploadedFile, TranscriptionResult  
+from dotenv import load_dotenv
+load_dotenv()
 
-app = Flask(__name__)
+app = Flask(
+    __name__,
+    static_url_path='',
+    static_folder='../client/build',
+    template_folder='../client/build'
+)
 app.config.from_object(Config)
 api = Api(app)
 CORS(app)
 
 db.init_app(app)
 
-class Index(Resource):
-    def get(self):
-        response_dict = {
-            "message": "Karibu sana"
-        }
-        response = make_response(
-            response_dict,
-            200
-        )
-        return response
+# class Index(Resource):
+#     def get(self):
+#         response_dict = {
+#             "message": "Karibu sana"
+#         }
+#         response = make_response(
+#             response_dict,
+#             200
+#         )
+#         return response
+@app.route('/')
+@app.route('/<int:id>')
+def index(id=0):
+    return render_template("index.html")
 
 
 class UploadedFiles(Resource):
@@ -144,7 +155,7 @@ class Transcription_by_Id(Resource):
         return response
 
 
-api.add_resource(Index, "/")
+# api.add_resource(Index, "/")
 api.add_resource(UploadedFiles, "/uploads")
 api.add_resource(Upload_by_Id, "/uploads/<int:id>")
 api.add_resource(TranscriptionResults, "/transcriptions")
