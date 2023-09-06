@@ -63,7 +63,7 @@
     right: 5px;
     left: 5px; 
     width: calc(93% - 20px); 
-    max-height: 900px; 
+    height: 500px; 
     overflow: hidden;
     border-radius: 20px;
   }
