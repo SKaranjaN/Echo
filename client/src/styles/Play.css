@@ -116,6 +116,16 @@
       justify-content: center;
       align-items: center;
     }
+    .play-button.loading {
+      pointer-events: none;
+    }
+    
+    .play-button:hover .icon-container {
+      background-color: #647710; 
+    }
+    .play-button.loading .progress-text {
+      color: white;
+    }
   }
   
   

@@ -12,6 +12,8 @@ function Play({ cloudinaryUrl, fileName }) {
   const [transcriptionText, setTranscriptionText] = useState('');
   const [transcriptionId, setTranscriptionId] = useState(null);
 
+  const ngrokUrl = "https://69dd-102-22-213-52.ngrok-free.app"; 
+
   const handlePlayClick = () => {
     setIsLoading(true);
     setTranscriptionStatus('Please wait...');
@@ -21,7 +23,7 @@ function Play({ cloudinaryUrl, fileName }) {
       file_path: cloudinaryUrl,
     };
 
-    fetch("http://127.0.0.1:5000/uploads", {
+    fetch(`${ngrokUrl}/uploads`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -62,7 +64,7 @@ function Play({ cloudinaryUrl, fileName }) {
       // console.log(editedText)
       // console.log(formData)
   
-      fetch(`http://127.0.0.1:5000/transcriptions/${transcriptionId}`, {
+      fetch(`${ngrokUrl}/transcriptions/${transcriptionId}`, {
         method: 'PATCH',
         body: formData,
       })
