@@ -69,7 +69,7 @@
   }
 
   .text-result {
-    max-height: 380px;
+    max-height: 360px;
     overflow: auto;
     height: auto;
   }
